@@ -10,4 +10,10 @@ CONFIG += C++11
 
 TEMPLATE = app
 
-SOURCES += main.cc
+SOURCES += main.cc \
+    solariantutorial.cc \
+    tutorialscup.cc
+
+HEADERS += \
+    solariantutorial.hh \
+    tutorialscup.hh
