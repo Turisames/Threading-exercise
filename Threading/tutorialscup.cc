@@ -76,6 +76,7 @@ params_class_into_thread_other()
 void
 program_itself_cup()
 {
+
     //functorfunc();
     //params_into_threads();
     //params_class_into_thread();

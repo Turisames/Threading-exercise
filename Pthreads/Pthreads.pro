@@ -9,4 +9,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cc
+SOURCES += main.cc \
+    fromtutorialspoint.cc
+
+HEADERS += \
+    fromtutorialspoint.hh
