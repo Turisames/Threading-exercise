@@ -44,7 +44,7 @@ dot_product(const std::vector<int> &v1,
 }
 
 void
-program_itself()
+program_itself_solarian()
 {
 
     /*

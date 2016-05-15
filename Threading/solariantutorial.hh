@@ -14,6 +14,6 @@ void dot_product_nonparallel(const std::vector<int> &v1,
 void dot_product(const std::vector<int> &v1,
                  const std::vector<int> &v2,
                  int &result, int L, int R);
-void program_itself();
+void program_itself_solarian();
 
 #endif // SOLARIANTUTORIAL_HH
