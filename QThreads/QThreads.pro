@@ -1,5 +1,6 @@
 QT += core
-QT -= gui
+QT += gui
+QT += concurrent
 
 CONFIG += c++11
 
@@ -10,7 +11,9 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cc \
-    mythread.cc
+    mythread.cc \
+    qtconcurrencytutorial.cc
 
 HEADERS += \
-    mythread.hh
+    mythread.hh \
+    qtconcurrencytutorial.hh
