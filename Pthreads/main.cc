@@ -7,7 +7,7 @@
 static pthread_mutex_t GLOBAL_MUTEX = PTHREAD_MUTEX_INITIALIZER;
 static long universal;
 
-void * myOwnThreadFunction( void* Param )
+void * myOwnThreadFunction( void* )
 {
     for (int i = 0; i < 101; ++i)
     {
@@ -20,7 +20,7 @@ void * myOwnThreadFunction( void* Param )
     pthread_exit( NULL );
 }
 
-void * mySecondThreadFunction( void * Param  )
+void * mySecondThreadFunction( void * )
 {
     for (int i = 0; i < 101; ++i)
     {
@@ -43,10 +43,10 @@ int main(int argc, char *argv[])
 
     universal = 0;
     pthread_t thread1, thread2;
-    int param{ 100 };//(void*) &param
+    //int param{ 100 };//(void*) &param
 
-    pthread_create( &thread1, NULL, myOwnThreadFunction, (void*) &param );
-    pthread_create( &thread2, NULL, mySecondThreadFunction, (void*) &param);
+    pthread_create( &thread1, NULL, myOwnThreadFunction, NULL);
+    pthread_create( &thread2, NULL, mySecondThreadFunction, NULL );
 
     std::cout << "\tmain(): Done creating threads." << std::endl;
     pthread_join( thread1, NULL );
