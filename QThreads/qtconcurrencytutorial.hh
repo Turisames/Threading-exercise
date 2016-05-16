@@ -5,6 +5,10 @@
 #include <QDebug>
 #include <QThread>
 
+#include <QMutex>
+
+static QMutex coutMutex;
+
 void myRunFunction(QString name);
 
 #endif // QTCONCURRENCYTUTORIAL_HH

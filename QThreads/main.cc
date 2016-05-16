@@ -6,6 +6,7 @@
 #include <QCoreApplication>
 #include <qtconcurrentrun.h>
 #include <QThread>
+#include <QFutureSynchronizer>
 
 #ifndef QT_NO_CONCURRENT
 
@@ -25,13 +26,26 @@ void qthread_tutorial()
 
 void qtconcurrent_run_tutorial()
 {
-    QFuture<void> t1 = QtConcurrent::run( myRunFunction, QString("A") );
-    QFuture<void> t2 = QtConcurrent::run( myRunFunction, QString("B") );
-    QFuture<void> t3 = QtConcurrent::run( myRunFunction, QString("C") );
+    QFutureSynchronizer<void> syncr;
 
+    //coutMutex = QMutex();
+
+    QFuture<void> t1 = QtConcurrent::run( myRunFunction,
+                                          QString("A") );
+    syncr.addFuture( t1 );
+    QFuture<void> t2 = QtConcurrent::run( myRunFunction,
+                                          QString("B") );
+    syncr.addFuture( t2 );
+    QFuture<void> t3 = QtConcurrent::run( myRunFunction,
+                                          QString("C") );
+    syncr.addFuture( t3 );
+
+    /*
     t1.waitForFinished();
     t2.waitForFinished();
     t3.waitForFinished();
+    */
+    syncr.waitForFinished();
 }
 
 int main(int argc, char *argv[])
@@ -39,10 +53,10 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     ///    QThread tutorial
-    qthread_tutorial();
+    //qthread_tutorial();
 
     ///     QtConcurrent tutorial
-    //qtconcurrent_run_tutorial();
+    qtconcurrent_run_tutorial();
 
     //std::exit( 0 );
     return a.exec();
