@@ -44,10 +44,8 @@ dot_product(const std::vector<int> &v1,
 }
 
 void
-program_itself_solarian()
+program_one()
 {
-
-    /*
     //std::thread t[ NUM_THREADS ];
     std::vector<std::thread> th;
 
@@ -67,9 +65,17 @@ program_itself_solarian()
     {
         //t[i].join();
 
-    }//*/
-    //*/
+    }*/
+}
 
+/// Mostly commented out because an undefined function
+/// called bound( int, int) is called.
+/// It was there in the tutorial and is not there due to my
+/// hamhandedness.
+
+void
+program_two()
+{
     /*int nr_elements = 100000;
     int nr_threads = 2;
     int result = 0;
@@ -97,6 +103,14 @@ program_itself_solarian()
     }
 
     //Print the result
-    std::cout<<result<<std::endl;
-    //*/
+    std::cout<<result<<std::endl;*/
+}
+
+void
+program_itself_solarian()
+{
+    program_one();
+
+    //program_two();
+
 }
